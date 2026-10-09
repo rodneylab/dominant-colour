@@ -1,21 +1,27 @@
-Template repo for syncing Rust CI GitHub workflows and other config.
+<img src="./images/rodneylab-github-dominant-colour.png" alt="Rodney Lab Dominant Colour Git Hub banner" />
 
-Repo is intended for use with Rust projects, so most CI GitHub workflows run on
-this template will fail; they need a project with Rust code, tests so on, configured to pass.
+<p align="center">
+  <a
+    aria-label="Open Rodney Lab site"
+    href="https://rodneylab.com"
+    rel="nofollow noopener noreferrer"
+  >
+    <img
+      alt="Rodney Lab logo"
+      src="https://rodneylab.com/assets/icon.png"
+      width="60"
+    />
+  </a>
+</p>
+<h1 align="center">
+  dominant-colour
+</h1>
 
-Based on
-[process described by Jon Gjengset in this Setting up CI stream](https://www.youtube.com/watch?v=xUH-4y92jPg)
+**Generate dominant colour, base64 data-URIs for use as website image placeholders**
 
-## Usage
+> **Warning** 🚧 Work in progress
 
-From a Rust project run:
+## License
 
-```shell
-git remote add ci https://github.com/rodneylab/rust-ci-conf
-git fetch ci
-git merge --allow-unrelated ci/main
-```
-
-This will clone the history of this repo and merge it with yours. You can also
-merge updates to these templates (by running the `git fetch ci` & `git merge`
-steps above again).
+The project is licensed under BSD 3-Clause License — see the
+[LICENSE](./LICENSE) file for details.
