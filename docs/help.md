@@ -39,7 +39,7 @@ Generate a placeholder
 - `-c`, `--clipboard` — Copy generated URI to clipboard
 - `--svg` — Create an SVG, instead of preserving the input format
 
-<hr/>
+<hr />
 
 <small><i>
 This document was generated automatically by

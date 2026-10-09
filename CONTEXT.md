@@ -31,27 +31,27 @@ are loading.
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `src/main.rs`                                                                              | Entry point; parses CLI, orchestrates image processing, logging setup           |
 | `src/placeholder.rs`                                                                       | K-means colour computation (16 seeds, best result), SVG placeholder generation, |
-| byte output generation with format optimisation                                            |
+| byte output generation with format optimisation                                            |                                                                                 |
 | `src/utilities/image.rs`                                                                   | Image loading with format detection, resizing, base64 data URI generation       |
-| `src/utilities/ui.rs` - Clipboard copy via arboard                                         |
-| `src/cli/mod.rs` - CLI argument parsing with clap; subcommands: `generate`,                |
-| `markdown-help` (internal-tools feature)                                                   |
-| `src/io.rs` - File I/O with size limiting (max 16 MiB input)                               |
-| `src/errors.rs` - Error types: `IoError`, `ImageError`, `AppError` with miette diagnostics |
-| `src/cli/styles.rs` - Custom clap styling (green headers, cyan literals)                   |
+| `src/utilities/ui.rs` - Clipboard copy via arboard                                         |                                                                                 |
+| `src/cli/mod.rs` - CLI argument parsing with clap; subcommands: `generate`,                |                                                                                 |
+| `markdown-help` (internal-tools feature)                                                   |                                                                                 |
+| `src/io.rs` - File I/O with size limiting (max 16 MiB input)                               |                                                                                 |
+| `src/errors.rs` - Error types: `IoError`, `ImageError`, `AppError` with miette diagnostics |                                                                                 |
+| `src/cli/styles.rs` - Custom clap styling (green headers, cyan literals)                   |                                                                                 |
 
 ### Key Types
 
 | Type                                                                           | Description |
 | ------------------------------------------------------------------------------ | ----------- |
-| `DominantColourOptions` - k-configuration: `k` (cluster count, default 8),     |
-| `max_iter` (default 20), `converge` threshold (default 5.0)                    |
-| `SvgPlaceholder` - Askama template-rendered SVG struct with `width`, `height`, |
-| `dominant_colour`                                                              |
-| `GenerateArgs` - CLI args: `input` (required `PathBuf`), `output` (optional    |
-| `PathBuf`), `clipboard` (`bool`), `svg` (`bool`)                               |
-| `FitMode` - Enum with `Clip` variant (default); resizes within bounds          |
-| maintaining aspect ratio                                                       |
+| `DominantColourOptions` - k-configuration: `k` (cluster count, default 8),     |             |
+| `max_iter` (default 20), `converge` threshold (default 5.0)                    |             |
+| `SvgPlaceholder` - Askama template-rendered SVG struct with `width`, `height`, |             |
+| `dominant_colour`                                                              |             |
+| `GenerateArgs` - CLI args: `input` (required `PathBuf`), `output` (optional    |             |
+| `PathBuf`), `clipboard` (`bool`), `svg` (`bool`)                               |             |
+| `FitMode` - Enum with `Clip` variant (default); resizes within bounds          |             |
+| maintaining aspect ratio                                                       |             |
 
 ### Data Flow
 
