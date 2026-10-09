@@ -1,4 +1,3 @@
 Error:   × The image format Tiff is not supported
   help: Tiff image format is not supported.  Try converting the image to AVIF,
         JPEG, PNG or WebP externally, then retrying.
-
