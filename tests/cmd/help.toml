@@ -1,0 +1,3 @@
+bin.name = "dominant-colour"
+args = "--help"
+status.code = 0
