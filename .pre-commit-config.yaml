@@ -26,6 +26,7 @@ repos:
         args:
           - --markdown-linebreak-ext=md
       - id: end-of-file-fixer
+        exclude: 'tests\/cmd\/.+\.(stderr|stdout)$'
       - id: check-yaml
       - id: check-json
         exclude: .vscode
