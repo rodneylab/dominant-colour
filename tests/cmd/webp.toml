@@ -1,0 +1,3 @@
+bin.name = "dominant-colour"
+args = ["generate", "tests/cmd/185-200x200.webp"]
+status.code = 0
