@@ -16,7 +16,7 @@ name = "dominant-colour"
 internal-tools = ["clap-markdown"]
 
 [dependencies]
-arboard = "3.6.1"
+arboard = "3.7.0"
 askama = "0.16.1"
 base64 = "0.23.1"
 clap = { version = "4.6.7", features = ["derive"] }
@@ -44,7 +44,7 @@ thiserror = "2.0.21"
 [dev-dependencies]
 assert_fs = "1.1.4"
 insta = { version = "1.49.0", features = ["json"] }
-proptest = "1.11.0"
+proptest = "1.12.0"
 serde = { version = "1.0.229", features = ["derive"] }
 trycmd = "1.2.1"
 
