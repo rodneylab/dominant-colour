@@ -2,6 +2,8 @@ use std::io;
 
 use image::error::ImageFormatHint;
 
+use crate::utilities::image::MAX_INPUT_IMAGE_DIMENSION;
+
 /// Input/output error
 #[derive(Debug, miette::Diagnostic, thiserror::Error)]
 #[error("{detail}")]
@@ -71,6 +73,13 @@ pub struct ImageError {
 impl From<image::ImageError> for ImageError {
     fn from(value: image::ImageError) -> Self {
         match value {
+            image::ImageError::Limits(ref _error) => Self {
+                advice: format!(
+                    "Resize the input image to smaller than {MAX_INPUT_IMAGE_DIMENSION} x \
+                    {MAX_INPUT_IMAGE_DIMENSION} pixels",
+                ),
+                detail: value.to_string(),
+            },
             image::ImageError::Unsupported(ref error) => {
                 let common_advice = String::from(
                     "Try converting the image to AVIF, JPEG, PNG or WebP externally, then \
