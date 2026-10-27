@@ -37,8 +37,9 @@ cargo run --features internal-tools -- markdown-help
 - **Default k-means options**: `k=8`, `max_iter=20`, `converge=5.0`
   (`placeholder.rs:17-25`). Override via `DominantColourOptions::default()` or
   custom options.
-- **Input size limit**: 16 mebibyte max. Files larger than this will return an
+- **Input file size limit**: 16 mebibyte max. Files larger than this will return an
   `IoError` with advice to optimise the file.
+- **Input width and height limit**: 16,384 by 16,384 pixels.
 - **Image resizing**: All images resized to 100×100 with `FitMode::Clip` before
   k-means analysis (`main.rs:104`).
 - **Output modes**:

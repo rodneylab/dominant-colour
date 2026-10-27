@@ -6,17 +6,23 @@ use std::{
 use base64::{Engine, engine::general_purpose::STANDARD_NO_PAD};
 use image::{
     DynamicImage::{self, ImageRgba8},
-    ImageFormat, ImageReader,
+    ImageFormat, ImageReader, Limits,
     error::{ImageFormatHint, UnsupportedErrorKind},
     imageops::{self, FilterType},
 };
 
 use crate::errors::{AppError, ImageDimensionError, ImageError, IoError};
 
+pub const MAX_INPUT_IMAGE_DIMENSION: u32 = 16_384;
+
 pub fn load_image(bytes: &[u8]) -> Result<(ImageFormat, DynamicImage), AppError> {
-    let image_reader = ImageReader::new(Cursor::new(bytes))
+    let mut image_reader = ImageReader::new(Cursor::new(bytes))
         .with_guessed_format()
         .map_err(|err| IoError::new(&err, "reading input image bytes"))?;
+    let mut limits = Limits::default();
+    limits.max_image_width = Some(MAX_INPUT_IMAGE_DIMENSION);
+    limits.max_image_height = Some(MAX_INPUT_IMAGE_DIMENSION);
+    image_reader.limits(limits);
 
     let format = image_reader.format().ok_or(ImageError {
         advice: String::from(
