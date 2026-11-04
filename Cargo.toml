@@ -33,7 +33,7 @@ image = { version = "0.25.10", default-features = false, features = [
   "webp",
 ] }
 kmeans_colors = { version = "0.7.1", default-features = false, features = ["palette_color"] }
-log = "0.4.34"
+log = "0.4.35"
 miette = { version = "7.6.0", features = ["fancy"] }
 mozjpeg-rs = "0.9.2"
 oxipng = "10.2.1"
