@@ -2,11 +2,11 @@ name: Rust
 on:
   push:
     branches:
-      - main
+      - trunk
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - main
+      - trunk
 permissions: {}
 env:
   CARGO_TERM_COLOR: always
@@ -25,7 +25,7 @@ jobs:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
-        run: sudo apt-get update
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev libdav1d-dev
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -43,6 +43,8 @@ jobs:
         with:
           egress-policy: audit
           disable-telemetry: true
+      - name: Install Linux Dependencies
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -76,6 +78,8 @@ jobs:
         with:
           egress-policy: audit
           disable-telemetry: true
+      - name: Install Linux Dependencies
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -91,13 +95,13 @@ jobs:
     runs-on: ubuntu-26.04
     strategy:
       matrix:
-        msrv: ["1.60.0"] # instrument-coverage flag requires Rust 1.60
+        msrv: ["1.89.0"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Install Linux Dependencies
-        run: sudo apt-get update
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - name: Install ${{ matrix.msrv }}
         uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
         with:
@@ -116,7 +120,7 @@ jobs:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
-        run: sudo apt-get update
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
