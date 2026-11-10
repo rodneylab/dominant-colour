@@ -1,1 +1,4 @@
-.DS_Store
+/.DS_Store
+/.cache
+/rusty-tags.vi
+/target
