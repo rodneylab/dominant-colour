@@ -20,16 +20,16 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
         run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev libdav1d-dev
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
+      - uses: dtolnay/rust-toolchain@stable
       - name: Run tests
         run: cargo test
   fmt:
@@ -39,16 +39,16 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
         run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
+      - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
       - name: Enforce formatting
@@ -60,13 +60,13 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: dprint/check@371a959e3c77f34a76a03d2c50df2e3f2302d016 # v2.6
+      - uses: dprint/check@v2.6
   clippy:
     name: Clippy
     permissions:
@@ -74,16 +74,16 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
         run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
+      - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
       - name: Linting
@@ -97,13 +97,13 @@ jobs:
       matrix:
         msrv: ["1.89.0"]
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Install Linux Dependencies
         run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - name: Install ${{ matrix.msrv }}
-        uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
+        uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.msrv }}
       - name: cargo +${{ matrix.msrv }} check
@@ -115,17 +115,17 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
           disable-telemetry: true
       - name: Install Linux Dependencies
         run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
+      - uses: dtolnay/rust-toolchain@stable
         with:
           components: llvm-tools-preview
       - name: Install grcov
@@ -137,7 +137,7 @@ jobs:
       - name: Generate code coverage
         run: grcov . -s . --binary-path ./target/debug/ -t lcov --branch --ignore-not-existing -o ./target/debug/
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        uses: codecov/codecov-action@v7.1.1
         with:
           files: ./target/debug/lcov
         env:
@@ -149,8 +149,8 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Machete
-        uses: bnjbvr/cargo-machete@ac30a525c0a8d163a92d727b3ff079ee3f6ecb08 # v0.9.2
+        uses: bnjbvr/cargo-machete@v0.10.1
