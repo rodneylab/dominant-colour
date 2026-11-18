@@ -1,16 +1,7 @@
 {
-  "json": {
-  },
-  "markdown": {
-  },
-  "toml": {
-  },
-  "excludes": [
-    "**/*-lock.json"
-  ],
-  "plugins": [
-    "npm:@dprint/json@0.26.0",
-    "npm:@dprint/markdown@0.29.0",
-    "npm:@dprint/toml@0.10.0"
-  ]
+  "json": {},
+  "markdown": {},
+  "toml": {},
+  "excludes": ["**/*-lock.json"],
+  "plugins": ["npm:@dprint/json@0.26.0", "npm:@dprint/markdown@0.29.0", "npm:@dprint/toml@0.10.0"]
 }

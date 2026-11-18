@@ -12,6 +12,8 @@ jobs:
         with:
           egress-policy: audit
           disable-telemetry: true
+      - name: Install Linux Dependencies
+        run: sudo apt-get update && sudo apt install -y nasm libdav1d-dev
       - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false

@@ -1,0 +1,13 @@
+Generate dominant colour, base64 data-URIs for use as website image placeholders
+
+Usage: dominant-colour [OPTIONS] <COMMAND>
+
+Commands:
+  generate  Generate a placeholder
+  help      Print this message or the help of the given subcommand(s)
+
+Options:
+  -v, --verbose...  Increase logging verbosity
+  -q, --quiet...    Decrease logging verbosity
+  -h, --help        Print help
+  -V, --version     Print version

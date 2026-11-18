@@ -1,0 +1,9 @@
+---
+source: src/placeholder.rs
+expression: outcome
+---
+{
+  "k": 8,
+  "max_iter": 20,
+  "converge": 5.0
+}
